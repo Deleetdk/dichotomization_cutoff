@@ -74,7 +74,8 @@ shinyServer(function(input, output) {
           annotate("text", x = 1, y = 0, label = t_1_0, color = "red", size = 15) +
           annotate("text", x = 0, y = 1, label = t_0_1, color = "red", size = 15) +
           annotate("text", x = 1, y = 1, label = t_1_1, color = "red", size = 15) +
-          annotate("text", x = .5, y = .5, label = t_r, color = "orange", size = 10)
+          annotate("text", x = .5, y = .5, label = t_r, color = "orange", size = 10) +
+          xlab("Variable A") + ylab("Variable B")
       } 
       else {
         #correlation
@@ -87,7 +88,8 @@ shinyServer(function(input, output) {
         ggplot(d, aes(A, B)) +
           geom_point(alpha = .5) +
           geom_smooth(method = lm, se = F, color = "green") +
-          annotate("text", x = x_pos, y = y_pos, label = t_r, color = "orange", size = 10)
+          annotate("text", x = x_pos, y = y_pos, label = t_r, color = "orange", size = 10)  +
+          xlab("Variable A") + ylab("Variable B")
       }
     })
     
