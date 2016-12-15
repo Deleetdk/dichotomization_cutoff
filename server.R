@@ -18,6 +18,7 @@ shinyServer(function(input, output) {
     input$update
     
     isolate({
+      set.seed(1)
       d = as.data.frame(mvrnorm(n, mu = c(0, 0), Sigma = matrix(c(1, input$cor, input$cor, 1), ncol = 2), empirical = T))
       colnames(d) = c("A", "B")
       
@@ -75,7 +76,8 @@ shinyServer(function(input, output) {
           annotate("text", x = 0, y = 1, label = t_0_1, color = "red", size = 15) +
           annotate("text", x = 1, y = 1, label = t_1_1, color = "red", size = 15) +
           annotate("text", x = .5, y = .5, label = t_r, color = "orange", size = 10) +
-          xlab("Variable A") + ylab("Variable B")
+          xlab("Variable A") + ylab("Variable B") +
+          theme_bw()
       } 
       else {
         #correlation
@@ -88,8 +90,16 @@ shinyServer(function(input, output) {
         ggplot(d, aes(A, B)) +
           geom_point(alpha = .5) +
           geom_smooth(method = lm, se = F, color = "green") +
-          annotate("text", x = x_pos, y = y_pos, label = t_r, color = "orange", size = 10)  +
-          xlab("Variable A") + ylab("Variable B")
+          xlab("Variable A") + ylab("Variable B") +
+          annotate("text",
+                   x = -Inf,
+                   y = Inf,
+                   hjust = 0,
+                   vjust = 1,
+                   label = t_r,
+                   color = "darkorange",
+                   size = 10) +
+          theme_bw()
       }
     })
     

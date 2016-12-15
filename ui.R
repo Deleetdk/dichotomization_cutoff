@@ -41,6 +41,7 @@ shinyUI(fluidPage(
            "<p>If we measure a continuous trait using only two values, then we are losing precision. If we then correlate the obtained data with some other variable, the resulting correlation will be lower than it would have been had we used a continuous measurement. The issue is further complicated by the fact that we can vary at which centile we set the cut-off point between the two values. Lack of understanding of this phenomenon leads to confusion and underestimization of the strength of relationships between traits that are routinely measured as dichotomous values, such as mental illnesses.</p>",
            "<p>Below we see a scatter plot of two variables. You can use the settings to the left to make one or both of the variables dichotomous. You can also decide at which cut-off centile the data are to be dichotomized. When you have made some changes and want to see the effect, click the 'Update!' button below.</p>"),
       plotOutput("plot", width = "600px"),
+      hr(),
       HTML("Made by <a href='http://emilkirkegaard.dk'>Emil O. W. Kirkegaard</a> using <a href='http://shiny.rstudio.com/'/>Shiny</a> for <a href='http://en.wikipedia.org/wiki/R_%28programming_language%29'>R</a>. Source code available on <a href='https://github.com/Deleetdk/dichotomization_cutoff'>Github</a>.")
     )
   )

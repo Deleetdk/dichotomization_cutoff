@@ -1,4 +1,4 @@
-n = 100000
+n = 1e4
 
 #Percent function
 #credit: http://stackoverflow.com/a/7146270/3980197
